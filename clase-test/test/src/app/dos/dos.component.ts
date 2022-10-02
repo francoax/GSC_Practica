@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DosComponent implements OnInit {
 
+  title = 'hola';
+
   @Input() value2 : number = 2;
   constructor() { }
 

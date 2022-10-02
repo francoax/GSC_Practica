@@ -1,10 +1,10 @@
 "use strict";
 function doStuff(value) {
     if (typeof value === 'string') {
-        console.log(value.toUpperCase().split('').join(''));
+        console.log(value.toUpperCase().split('').join('')); // Infiere que el tipo de value va a ser string
     }
     else if (typeof value === 'number') {
-        console.log(value.toPrecision(5));
+        console.log(value.toPrecision(5)); // Infiere que el tipo de value va a ser number. Ambos esto es por el metodo que se le aplica a la variable
     }
     value;
 }
