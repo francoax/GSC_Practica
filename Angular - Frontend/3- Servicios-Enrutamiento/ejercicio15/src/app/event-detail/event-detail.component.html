@@ -1,0 +1,24 @@
+<h1>Detalles</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Dia</th>
+            <th>Hora</th>
+            <th>Ubicacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{user?.date}}</td>
+            <td>{{user?.time}}</td>
+            <td>{{user?.location?.address}}</td>
+        </tr>
+    </tbody>
+
+</table>
+<br>
+<p>Evento revisado: </p>
+<input type="checkbox" (change)="isReviewed()">Revisado
+<br>
+<br>
+<button (click)="returnToEvents()">Volver a eventos</button>

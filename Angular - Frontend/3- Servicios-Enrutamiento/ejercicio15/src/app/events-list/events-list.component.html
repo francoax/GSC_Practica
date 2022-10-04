@@ -1,0 +1,22 @@
+<div>
+  <h3>All of the events should show below</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{event.name}}</td>
+        <td> <a [routerLink]="[ '/detail', event.id ]">Detalle </a></td>
+      </tr>
+      <tr>
+        <td><a [routerLink]="['/detail', 41]">Evento invalido</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
