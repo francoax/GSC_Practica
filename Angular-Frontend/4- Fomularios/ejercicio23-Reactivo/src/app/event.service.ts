@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Event } from './entitie/event';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +9,9 @@ export class EventService {
 
   constructor() { }
 
-  EVENTS = [
+  EVENTS : Event[] =  [
     {
+      id : 1,
       name: 'Angular Connect',
       date: '9/26/2036',
       time: '10am',
@@ -19,6 +22,7 @@ export class EventService {
       }
     },
     {
+      id : 2,
       name: 'ng-nl',
       date: '4/15/2037',
       time: '9am',
@@ -29,6 +33,7 @@ export class EventService {
       }
     },
     {
+      id : 3,
       name: 'ng-conf 2037',
       date: '4/15/2037',
       time: '9am',
@@ -39,6 +44,7 @@ export class EventService {
       }
     },
     {
+      id : 4,
       name: 'UN Angular Summit',
       date: '6/10/2037',
       time: '8am',
@@ -50,7 +56,8 @@ export class EventService {
     },
   ];
 
-  saveEvent(event: any) {
+  // Por el .value, obtengo los valores como la estructura definida de evento y puedo trabajarlo.
+  saveEvent(event: Event) {
     event.id = 99;
     this.EVENTS.push(event);
   }

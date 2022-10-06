@@ -1,0 +1,46 @@
+<div>
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="event-name">Nombre del evento: (4 letras minimo)</label>
+      <input id="event-name" formControlName="name" type="text"/>
+      <div *ngIf="requireWarn('name')" [ngStyle]="setWarnStyle()"> {{errorMsg('name')}} </div>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Fecha: </label>
+      <input id="date" formControlName="date" type="text"/>
+      <div *ngIf="requireWarn('date')" [ngStyle]="setWarnStyle()"> {{errorMsg('date')}} </div>
+    </div>
+
+    <div class="form-group">
+      <label for="time">Hora: </label>
+      <input id="time" formControlName="time" type="text"/>
+      <div *ngIf="requireWarn('time')" [ngStyle]="setWarnStyle()"> {{errorMsg('time')}} </div>
+    </div>
+
+    <div formGroupName="location">
+
+      <div class="form-group">
+        <label for="address">Dirección: </label>
+        <input id="address" formControlName="address" type="text"/>
+        <div *ngIf="requireWarn('location.address')" [ngStyle]="setWarnStyle()"> {{errorMsg('location.address')}} </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city">Ciudad: </label>
+        <input id="city" formControlName="city" type="text"/>
+        <div *ngIf="requireWarn('location.city')" [ngStyle]="setWarnStyle()"> {{errorMsg('location.city')}} </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Pais: (Debe poseer dos mayusculas).</label>
+        <input id="country" formControlName="country" type="text"/>
+        <div *ngIf="requireWarn('location.country')" [ngStyle]="setWarnStyle()"> {{errorMsg('location.country')}} </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!eventForm.valid" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+  </form>
+</div>

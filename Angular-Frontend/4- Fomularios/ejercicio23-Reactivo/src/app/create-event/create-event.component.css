@@ -1,0 +1,43 @@
+form {
+    margin-top: 10px;
+}                                                  
+
+label {
+    display: block;
+}                                                   
+
+.form-group {
+    margin-top: 5px;
+}
+ 
+.ng-valid {
+    border-color: green;
+}
+
+.alert {
+    font-size: 18px;
+}
+
+.alert-danger {
+    color: red;
+}
+/* 
+.ng-invalid {
+    border-color: red;
+}
+
+.ng-untouched {
+    border-color: blue;
+}
+
+/* .ng-touched {
+    border-color: orange;
+} */
+
+/* .ng-dirty {
+    border-color: yellow;
+}
+
+.ng-pristine {
+    border-color: violet;
+} */
