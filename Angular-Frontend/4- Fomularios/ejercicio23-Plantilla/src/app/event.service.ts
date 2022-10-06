@@ -55,7 +55,7 @@ export class EventService {
     },
   ];
 
-  saveEvent(event: any) {
+  saveEvent(event: Event) {
     event.id = 99;
     this.EVENTS.push(event);
   }

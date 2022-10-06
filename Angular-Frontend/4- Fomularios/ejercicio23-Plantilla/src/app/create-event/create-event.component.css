@@ -10,3 +10,7 @@ label {
     margin-top: 5px;
 }
  
+.alert-danger {
+    color: red;
+    font-size: 15px;
+}

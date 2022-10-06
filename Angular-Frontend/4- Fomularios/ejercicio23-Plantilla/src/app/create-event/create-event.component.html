@@ -1,39 +1,45 @@
 <div>
-  <form #eventForm ="ngForm">
+  <form #eventForm ="ngForm" (ngSubmit)="onSubmit()">
     {{ modelEvent | json }}
     <div class="form-group">
       <label for="event-name">Nombre del evento:</label>
       <input id="event-name" type="text" required [(ngModel)]="modelEvent.name" name="name" #name="ngModel"/>
-      <div [hidden]="name.errors?.['required'] && !name.touched">Campo requerido</div>
+      <span [ngClass]="setClass()" *ngIf="beWarn(name)">{{setMessage(name)}}</span>
     </div>
 
     <div class="form-group">
       <label for="date">Fecha: </label>
       <input id="date" type="text" required [(ngModel)]="modelEvent.date" name="date" #date="ngModel"/>
-      <div [hidden]="date.errors?.['required'] && !date.touched">Campo requerido</div>
+      <span [ngClass]="setClass()" *ngIf="beWarn(date)">{{setMessage(date)}}</span>
     </div>
 
     <div class="form-group">
       <label for="time">Hora: </label>
-      <input id="time" type="text"  [(ngModel)]="modelEvent.time" name="name"/>
+      <input id="time" type="text" required  [(ngModel)]="modelEvent.time" name="time" #time="ngModel" />
+      <span [ngClass]="setClass()" *ngIf="beWarn(time)">{{setMessage(time)}}</span>
+      
     </div>
 
     <div class="form-group">
       <label for="address">Dirección: </label>
-      <input id="address" type="text"  [(ngModel)]="modelEvent.location.address" name="name"/>
+      <input id="address" type="text" required  [(ngModel)]="modelEvent.location.address" name="address" #address="ngModel" />
+      <span [ngClass]="setClass()" *ngIf="beWarn(address)">{{setMessage(address)}}</span>
     </div>
 
     <div class="form-group">
       <label for="city">Ciudad: </label>
-      <input id="city" type="text"  [(ngModel)]="modelEvent.location.city" name="name"/>
+      <input id="city" type="text" required [(ngModel)]="modelEvent.location.city" name="city" #city="ngModel"/>
+      <span [ngClass]="setClass()" *ngIf="beWarn(city)">{{setMessage(city)}}</span>
     </div>
     
     <div class="form-group">
       <label for="country">Pais: </label>
-      <input id="country" type="text"  [(ngModel)]="modelEvent.location.country" name="name"/>
+      <input id="country" type="text" required [(ngModel)]="modelEvent.location.country" #country="ngModel" name="country"/>
+      <span [ngClass]="setClass()" *ngIf="beWarn(country)">{{setMessage(country)}}</span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!eventForm.valid">Guardar</button>
     <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+    <button type="button" class="btn btn-default" (click)="eventForm.form.reset()" >Reinicar</button>
   </form>
 </div>
