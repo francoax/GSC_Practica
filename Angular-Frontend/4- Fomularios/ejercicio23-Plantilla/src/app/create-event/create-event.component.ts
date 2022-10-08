@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, NgModel } from '@angular/forms';
+import { FormControl, NgModel, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Event } from '../entitie/event';
 import { EventService } from '../event.service';
@@ -25,25 +25,26 @@ export class CreateEventComponent implements OnInit {
     }
   };
   
-  private messages : {type : string, msg : string}[] = [
-    {type : 'required', msg : 'Campo requerido.'},
-    {type : 'minlenght', msg : 'Requiere mas letras.'}
-  ];
+  private messages : {error : string, msg : string}[] = [
+    {error : 'required', msg : 'Campo requerido'},
+    {error : 'minlenght', msg : 'Minimo de letras requerido'},
+    {error : 'isSaturday', msg : 'No puede ser un sabado'},
+    {error : 'isSunday', msg : 'No puede ser un domingo'}
+  ]
 
-  setMessage(field : NgModel) : string | null {
-    let error = field.control.errors;
-    if(this.beWarn(field)) {
-      for (let e of this.messages) {
-        if(error?.[e.type]) 
-          this.setClass();
-          return e.msg
+  setMessage(field : ValidationErrors | null) : string | null {
+    if(!field) return null;
+    for(let e of this.messages) {
+      if(field[e.error]) {
+        this.setClass();
+        return e.msg;
       }
     }
-    return null;
+    return null
   }
 
   beWarn(field : NgModel) : boolean{
-   return field.control.invalid && field.control.touched; 
+   return field.control.invalid && field.control.touched
   }
 
   private warnClasses : {for : string, class : string} = 

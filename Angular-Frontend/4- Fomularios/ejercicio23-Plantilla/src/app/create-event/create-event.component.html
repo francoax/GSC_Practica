@@ -4,32 +4,32 @@
     <div class="form-group">
       <label for="event-name">Nombre del evento:</label>
       <input id="event-name" type="text" required [(ngModel)]="modelEvent.name" name="name" #name="ngModel"/>
-      <span [ngClass]="setClass()" *ngIf="beWarn(name)">{{setMessage(name)}}</span>
+      <span [ngClass]="setClass()" *ngIf="beWarn(name)">{{setMessage(name.control.errors)}}</span>
     </div>
 
     <div class="form-group">
-      <label for="date">Fecha: </label>
-      <input id="date" type="text" required [(ngModel)]="modelEvent.date" name="date" #date="ngModel"/>
-      <span [ngClass]="setClass()" *ngIf="beWarn(date)">{{setMessage(date)}}</span>
+      <label for="date">Fecha: (mm/dd/yyyy)</label>
+      <input id="date" type="text" required appNoWeekend [(ngModel)]="modelEvent.date" name="date" #date="ngModel"/>
+      <span [ngClass]="setClass()" *ngIf="beWarn(date)">{{setMessage(date.control.errors)}}</span>
     </div>
 
     <div class="form-group">
       <label for="time">Hora: </label>
       <input id="time" type="text" required  [(ngModel)]="modelEvent.time" name="time" #time="ngModel" />
-      <span [ngClass]="setClass()" *ngIf="beWarn(time)">{{setMessage(time)}}</span>
+      <span [ngClass]="setClass()" *ngIf="beWarn(time)">{{setMessage(time.control.errors)}}</span>
       
     </div>
 
     <div class="form-group">
       <label for="address">Dirección: </label>
       <input id="address" type="text" required  [(ngModel)]="modelEvent.location.address" name="address" #address="ngModel" />
-      <span [ngClass]="setClass()" *ngIf="beWarn(address)">{{setMessage(address)}}</span>
+      <span [ngClass]="setClass()" *ngIf="beWarn(address)">{{setMessage(address.control.errors)}}</span>
     </div>
 
     <div class="form-group">
       <label for="city">Ciudad: </label>
       <input id="city" type="text" required [(ngModel)]="modelEvent.location.city" name="city" #city="ngModel"/>
-      <span [ngClass]="setClass()" *ngIf="beWarn(city)">{{setMessage(city)}}</span>
+      <span [ngClass]="setClass()" *ngIf="beWarn(city)">{{setMessage(city.control.errors)}}</span>
     </div>
     
     <div class="form-group">
