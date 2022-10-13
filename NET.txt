@@ -1,0 +1,6 @@
+Net core : plataforma para desarrollar todo tipo de aplicaciones, que corran en cualquier tipo de plataforma.
+
+IoT : Dispositivos / Objetos que no tienen la teconologia necesaria, que le podamos agregar un dispositivo para hacerlo mas
+inteligente.
+
+ 

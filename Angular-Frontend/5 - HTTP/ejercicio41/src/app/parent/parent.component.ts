@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -8,20 +8,20 @@ import { of } from 'rxjs';
 })
 export class ParentComponent implements OnInit {
 
-  obs;
-  result;
+  obs = new Observable<number>();
+  result : number;
   promise;
 
-  constructor() { 
+  constructor() {
     this.obs = of(35);
   }
 
-  ngOnInit() {
-    // ingrese el código aquí
+  ngOnInit() : void {
+    this.promise = this.obs.toPromise();
   }
 
   listen() {
-    this.promise.then((val) => {
+    this.promise.then((val : number) => {
       this.result = val;
     })
   }
