@@ -9,7 +9,8 @@ import { Subject } from 'rxjs';
 export class ParentComponent implements OnInit {
 
   subject;
-  output = [];
+  output :string[] = [];
+  keyInput : string;
   
   constructor() {
     this.subject = new Subject();
@@ -18,8 +19,14 @@ export class ParentComponent implements OnInit {
   ngOnInit() {
     this.subject
     .subscribe(key => {
-      this.output.push(key);
+     this.output.push(key);
+     this.output = this.output.map(k => k.toUpperCase());
     });
+  }
+
+  reset() : void {
+    this.output = [];
+    this.keyInput = '';
   }
 
   keypress(e) {

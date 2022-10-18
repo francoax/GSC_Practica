@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Forecast } from './entitie/forecast';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-parent',
@@ -8,16 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class ParentComponent implements OnInit {
 
   appid = "69bc9bb1bbaa496601358677ea57a017";
-  forecast;
-  city;
+  forecast : Forecast;
+  city : string;
 
-  constructor() { }
+  constructor( private service : WeatherService) { }
 
   ngOnInit() {
   }
 
   makeRequest() {
     let url = "http://api.openweathermap.org/data/2.5/weather?q=" + this.city + "&APPID=" + this.appid;
+    this.service.getWeather(url).subscribe(data => {
+      this.forecast = data;
+    })
   }
 
 }
