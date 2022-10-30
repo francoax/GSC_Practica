@@ -1,0 +1,7 @@
+Cosas a tener en cuenta:
+Al crear un servicio o configuracion, estas deben ser declaradas en el builder, osea en el Program.cs
+
+Al agregar un nuevo servicio, debo instanciar que tipo de inyeccion va a tener, ya sea:
+Transcient - Scoped - Singleton, dependiendo del contexto o como es que quiera que yo lo utilice
+Y de la forma declarando entre <>, la interfaz en primer lugar y la clase que la implementa.
+<interfaz, miClaseImplementadora>();

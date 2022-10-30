@@ -1,0 +1,24 @@
+{{ theDate | date : 'longDate'}} - debe ser "April 1, 2035"<br />
+{{ theDate | date : 'MM-dd-yyyy'}} - debe ser "04-01-2035"<br />
+{{ theDate | date : 'shortTime' }} - debe ser "2:15 PM"<br />
+{{ theDate | date : 'MMMM d, HH:mm'}} - debe ser "April 1, 14:15"<br />
+
+<div class="card">
+    <div class="card-body">
+    <h4 class="card-title">Date Pipe</h4>
+    <p ngNonBindable>{{ today | date }}</p>
+    <p>{{ today | date }}</p>
+    <hr />
+    <p ngNonBindable>{{ today | date: 'fullDate' }}</p>
+    <p>{{ today | date: 'fullDate' }}</p>
+    <hr />
+    <p ngNonBindable>{{today | date: 'shortTime' }}</p>
+    <p>{{ today | date: 'shortTime' }}</p>
+    <hr />
+    <p ngNonBindable>{{today | date: 'full' }}</p>
+    <p>{{ today | date: 'full' }}</p>
+    <hr />
+    <p ngNonBindable>{{today | date: 'yyyy-MM-dd HH:mm a z' }}</p>
+    <p>{{ today | date: 'yyyy-MM-dd HH:mm a z' }}</p>
+    </div>
+    </div>
